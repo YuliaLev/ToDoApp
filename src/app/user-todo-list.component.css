@@ -1,0 +1,33 @@
+.userTodoListWrapper {
+  width: 500px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: rgba(190,190,190,.3);
+  border-radius: 3px;
+  text-align: center;
+}
+
+.userTodoListWrapper h2 {
+  margin-bottom: 20px;
+}
+
+.todoList {
+  margin: 20px 0;
+  text-align: left;
+}
+
+.todoList input[type=checkbox] {
+  float: right;
+  margin-right: 20px;
+}
+
+.deleteBtn {
+  position: absolute;
+  right: 12px;
+  top: 10px;
+}
+
+.doneItem {
+  text-decoration: line-through;
+  background-color: rgba(100,100,100,.2);
+}

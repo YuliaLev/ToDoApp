@@ -1,0 +1,7 @@
+<ul class="list-group userList">
+  <li *ngFor="let user of users" class="list-group-item">
+    <p><span>{{user.name}}, ID: {{user.id}}</span></p>
+    <button class='gotoTodoListBtn' (click)="gotoTodoList(user)">View Todo List</button>
+  </li>
+</ul>
+
