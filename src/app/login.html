@@ -1,0 +1,29 @@
+<form class="loginForm" (ngSubmit)="login()" #userForm="ngForm">
+  <h3>Log in</h3>
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" id="email" name="user_email" [class.invalid_email]="!validateEmail()" class="form-control" placeholder="Email" autofocus [(ngModel)]="model.email" required #email="ngModel">
+    <div [hidden]="email.valid || email.pristine" class="alert alert-danger">
+      Email is required
+    </div>
+    <div [hidden]="!(!validateEmail() && invalidEmail && model.email.length > 0)" class="alert alert-danger">
+      You have entered an invalid email address
+    </div>
+
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" id="password" name="user_password" class="form-control" placeholder="Password" [(ngModel)]="model.password" required #password="ngModel">
+    <div [hidden]="password.valid || password.pristine" class="alert alert-danger">
+      Password is required
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-success loginBtn">Log in</button>
+  {{model.email}} {{model.password}}
+  <br><br>
+  {{!invalidEmail}} {{validateEmail()}}
+</form>
+
+
+
