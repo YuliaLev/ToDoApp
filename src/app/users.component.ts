@@ -13,7 +13,7 @@ import { UserService } from './user.service';
 })
 export class UsersComponent implements OnInit {
   users: User[];
-  selectedUser:User;
+  // selectedUser:User;
 
   // onSelect(user: User): void {
   //   this.selectedUser = user;
@@ -32,9 +32,8 @@ export class UsersComponent implements OnInit {
     this.getUsers();
   }
 
-  gotoTodoList(user: User): void {
-    this.selectedUser = user;
-    this.router.navigate(['/todolist', this.selectedUser.id]);
+  gotoTodoList(id: string): void {
+    this.router.navigate(['/todolist', id]);
   }
 }
 

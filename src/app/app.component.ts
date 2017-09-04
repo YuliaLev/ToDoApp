@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   selector: 'my-app',
   template: `
     <h1>{{title}}</h1>
-    <a routerLink="/dashboard">Dashboard</a>
+    <a routerLink="/login">Login</a>
     <a routerLink="/users">Users</a>
    <router-outlet></router-outlet>
 `

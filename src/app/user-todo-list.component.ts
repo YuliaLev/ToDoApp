@@ -8,12 +8,16 @@ import { User } from './user';
 import { UserService } from './user.service';
 
 export class TodoItem{
-  purchase: string;
+  todo_id: number;
+  description: string;
   done: boolean;
+  date: number;
 
-  constructor(purchase: string) {
-    this.purchase = purchase;
+  constructor(description: string, todo_id: number) {
+    this.description = description;
+    this.todo_id = todo_id;
     this.done = false;
+    this.date = +new Date();
   }
 }
 
@@ -39,15 +43,17 @@ export class UserTodoListComponent implements OnInit{
 
   addTask(task: string): void {
     if (!task) { return; }
-    this.user.todoList.push(new TodoItem(task));
+    this.user.todoList.push(new TodoItem(task, this.user.todoList[this.user.todoList.length - 1].todo_id + 1));
   }
 
-  deleteTask(task: string): void {
-    this.user.todoList.forEach((item:string,i:number) => {if(task === item) this.user.todoList.splice(i,1)})
+  deleteTask(todo_id: number): void {
+    this.user.todoList.forEach((item:any,i:number) => {if(todo_id === item.todo_id) this.user.todoList.splice(i,1)});
+    console.log(+new Date());
   }
 
   goBack(): void {
     this.location.back();
   }
+
 
 }

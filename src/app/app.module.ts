@@ -1,43 +1,27 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
-import { RouterModule }   from '@angular/router';
 
 import { AppComponent }  from './app.component';
 import { UserTodoListComponent } from './user-todo-list.component';
 import { UsersComponent } from './users.component';
-import { DashboardComponent } from './dashboard.component';
+import { LoginComponent } from './login.component';
+
 import { UserService } from './user.service';
+
+import { AppRoutingModule }  from './app-routing.module';
 
 @NgModule({
   imports:      [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot([
-      {
-        path: 'users',
-        component: UsersComponent
-      },
-      {
-        path: 'dashboard',
-        component: DashboardComponent
-      },
-      {
-        path: '',
-        redirectTo: '/dashboard',
-        pathMatch: 'full'
-      },
-      {
-        path: 'todolist/:id',
-        component: UserTodoListComponent
-      },
-    ])
+    AppRoutingModule
   ],
   declarations: [
     AppComponent,
     UserTodoListComponent,
     UsersComponent,
-    DashboardComponent
+    LoginComponent
   ],
   providers: [UserService],
   bootstrap:  [ AppComponent ]

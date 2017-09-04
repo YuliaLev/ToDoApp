@@ -1,6 +1,6 @@
 <div *ngIf="user" class="userTodoListWrapper">
   <h2>{{user.name}} Todo List:</h2>
-  <!--<div><label>id: </label>{{user.id}}</div>-->
+  <div><label>id: </label>{{user.id}}</div>
   <div class="input-group">
     <input type="text" class="form-control" [(ngModel)]="task" placeholder="New task...">
     <span class="input-group-btn">
@@ -10,11 +10,13 @@
   <div class="todoList">
     <ul class="list-group">
       <li class="list-group-item" *ngFor="let item of user.todoList" [class.doneItem]="item.done">
-        {{item.purchase}}
+        {{item.description}} {{item.date | date}}
         <input type="checkbox" [(ngModel)]="item.done" />
-        <button (click)="deleteTask(item)" type="button" class="close deleteBtn" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <button (click)="deleteTask(item.todo_id)" type="button" class="close deleteBtn" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </li>
     </ul>
   </div>
   <button (click)="goBack()">Back</button>
 </div>
+
+
